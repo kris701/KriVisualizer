@@ -1,0 +1,86 @@
+﻿<Window x:Class="KriVisualizer.VisualizerControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KriVisualizer"
+             mc:Ignorable="d" 
+             Width="300" Height="300" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="300" MinHeight="300" AllowsTransparency="True" Background="Transparent" WindowStyle="None" Loaded="Window_Loaded">
+
+    <Grid x:Name="VisualizerControlGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="210"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+
+        <Canvas x:Name="VisualizerControlTopDragbar" Grid.Column="1" Cursor="ScrollN" Style="{StaticResource StandartCanvasStyle3}" MouseMove="VisualizerControlDragBars_MouseMove" MouseDown="VisualizerControlDragBars_MouseDown" MouseUp="VisualizerControlDragBars_MouseUp"/>
+        <Canvas x:Name="VisualizerControlLeftDragbar" Grid.Row="1" Grid.RowSpan="2" Cursor="ScrollW" Style="{StaticResource StandartCanvasStyle3}" MouseMove="VisualizerControlDragBars_MouseMove" MouseDown="VisualizerControlDragBars_MouseDown" MouseUp="VisualizerControlDragBars_MouseUp"/>
+        <Canvas x:Name="VisualizerControlBottomDragbar" Grid.Row="3" Grid.Column="1" Cursor="ScrollS" Style="{StaticResource StandartCanvasStyle3}" MouseMove="VisualizerControlDragBars_MouseMove" MouseDown="VisualizerControlDragBars_MouseDown" MouseUp="VisualizerControlDragBars_MouseUp"/>
+        <Canvas x:Name="VisualizerControlRightDragbar" Grid.Column="2" Grid.RowSpan="2" Grid.Row="1" Cursor="ScrollE" Style="{StaticResource StandartCanvasStyle3}" MouseMove="VisualizerControlDragBars_MouseMove" MouseDown="VisualizerControlDragBars_MouseDown" MouseUp="VisualizerControlDragBars_MouseUp"/>
+
+        <Canvas x:Name="VisualizerControlTopLeftDragbar" Cursor="ScrollNW" Style="{StaticResource StandartCanvasStyle2}" MouseMove="VisualizerControlDragBars_MouseMove" MouseDown="VisualizerControlDragBars_MouseDown" MouseUp="VisualizerControlDragBars_MouseUp"/>
+        <Canvas x:Name="VisualizerControlBottomLeftDragbar" Grid.Row="3" Cursor="ScrollSW" Style="{StaticResource StandartCanvasStyle2}" MouseMove="VisualizerControlDragBars_MouseMove" MouseDown="VisualizerControlDragBars_MouseDown" MouseUp="VisualizerControlDragBars_MouseUp"/>
+        <Canvas x:Name="VisualizerControlBottomRightDragbar" Grid.Row="3" Cursor="ScrollSE" Grid.Column="2" Style="{StaticResource StandartCanvasStyle2}" MouseMove="VisualizerControlDragBars_MouseMove" MouseDown="VisualizerControlDragBars_MouseDown" MouseUp="VisualizerControlDragBars_MouseUp"/>
+        <Canvas x:Name="VisualizerControlTopRightDragbar" Grid.Column="2" Cursor="ScrollNE" Style="{StaticResource StandartCanvasStyle2}" MouseMove="VisualizerControlDragBars_MouseMove" MouseDown="VisualizerControlDragBars_MouseDown" MouseUp="VisualizerControlDragBars_MouseUp"/>
+
+        <Canvas x:Name="VisualizerControlBeatZoneCanvas" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"/>
+
+        <Grid x:Name="VisualizerControlSettingsGrid" Grid.Row="1" Grid.Column="1" Background="{StaticResource StandartGridBackground3}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="24"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="24"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="VisualizerControlRemoveButton" Content="X" Style="{StaticResource StandartExitButtonStyle}" Click="VisualizerControlRemoveButton_Click"/>
+            <ComboBox x:Name="VisualizerControlTypeCombobox" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource StandartComboboxStyle}" SelectionChanged="VisualizerControlTypeCombobox_SelectionChanged"/>
+            <Label x:Name="VisualizerControlDragButton" Grid.Column="3" Content="M" Background="{StaticResource StandartButtonColor}" Style="{StaticResource StandartLabelStyle}" MouseDown="VisualizerControlDragButton_MouseDown" MouseMove="VisualizerControlDragButton_MouseMove" MouseUp="VisualizerControlDragButton_MouseUp" />
+
+            <Label x:Name="VisualizerControlVisualSamplesLabel" Grid.Row="1" Grid.ColumnSpan="2" Content="Visual Samples" Style="{StaticResource StandartLabelStyle}" MouseDown="VisualizerControlDragButton_MouseDown" MouseMove="VisualizerControlDragButton_MouseMove" MouseUp="VisualizerControlDragButton_MouseUp" />
+            <Slider x:Name="VisualizerControlVisualSamplesSlider" Grid.Row="1" Grid.Column="2" Minimum="1" Maximum="256" SmallChange="1" LargeChange="10" TickPlacement="BottomRight" Value="128" Style="{StaticResource StandartSliderStyle}" ValueChanged="VisualizerControlVisualSamplesSlider_ValueChanged"/>
+            <Label x:Name="VisualizerControlVisualSamplesValueLabel" Grid.Row="1" Grid.Column="3" Content="128" FontSize="7" Margin="0" Style="{StaticResource StandartLabelStyle}"/>
+
+            <Label x:Name="VisualizerControlSmoothnessLabel" Grid.Row="2" Grid.ColumnSpan="2" Content="Smoothness" Style="{StaticResource StandartLabelStyle}" MouseDown="VisualizerControlDragButton_MouseDown" MouseMove="VisualizerControlDragButton_MouseMove" MouseUp="VisualizerControlDragButton_MouseUp" />
+            <Slider x:Name="VisualizerControlSmoothnessSlider" Grid.Row="2" Grid.Column="2" Minimum="1" Maximum="25" SmallChange="1" LargeChange="3" TickPlacement="BottomRight" Style="{StaticResource StandartSliderStyle}" ValueChanged="VisualizerControlSmoothnessSlider_ValueChanged"/>
+            <Label x:Name="VisualizerControlSmoothnessValueLabel" Grid.Row="2" Grid.Column="3" Content="1" FontSize="7" Margin="0" Style="{StaticResource StandartLabelStyle}"/>
+
+            <Label x:Name="VisualizerControlSensitivityLabel" Grid.Row="3" Grid.ColumnSpan="2" Content="Sensitivity" Style="{StaticResource StandartLabelStyle}" MouseDown="VisualizerControlDragButton_MouseDown" MouseMove="VisualizerControlDragButton_MouseMove" MouseUp="VisualizerControlDragButton_MouseUp" />
+            <Slider x:Name="VisualizerControlSensitivitySlider" Grid.Row="3" Grid.Column="2" Minimum="1" Maximum="10" SmallChange="1" LargeChange="3" TickPlacement="BottomRight" Style="{StaticResource StandartSliderStyle}" ValueChanged="VisualizerControlSensitivitySlider_ValueChanged"/>
+            <Label x:Name="VisualizerControlSensitivityValueLabel" Grid.Row="3" Grid.Column="3" Content="1" FontSize="7" Margin="0" Style="{StaticResource StandartLabelStyle}"/>
+
+            <Label x:Name="VisualizerControlBeatZoneFromLabel" Grid.Row="4" Grid.ColumnSpan="2" Content="Beat Zone From" Style="{StaticResource StandartLabelStyle}" MouseDown="VisualizerControlDragButton_MouseDown" MouseMove="VisualizerControlDragButton_MouseMove" MouseUp="VisualizerControlDragButton_MouseUp" />
+            <Slider x:Name="VisualizerControlBeatZoneFromSlider" Grid.Row="4" Grid.Column="2" Minimum="0" Maximum="127" SmallChange="1" LargeChange="10" TickPlacement="BottomRight" Style="{StaticResource StandartSliderStyle}" ValueChanged="VisualizerControlBeatZoneFromSlider_ValueChanged"/>
+            <Label x:Name="VisualizerControlBeatZoneFromValueLabel" Grid.Row="4" Grid.Column="3" Content="0" FontSize="7" Margin="0" Style="{StaticResource StandartLabelStyle}"/>
+
+            <Label x:Name="VisualizerControlBeatZoneToLabel" Grid.Row="5" Grid.ColumnSpan="2" Content="Beat Zone To" Style="{StaticResource StandartLabelStyle}" MouseDown="VisualizerControlDragButton_MouseDown" MouseMove="VisualizerControlDragButton_MouseMove" MouseUp="VisualizerControlDragButton_MouseUp" />
+            <Slider x:Name="VisualizerControlBeatZoneToSlider" Grid.Row="5" Grid.Column="2" Minimum="1" Maximum="128" SmallChange="1" LargeChange="10" TickPlacement="BottomRight" Value="128" Style="{StaticResource StandartSliderStyle}" ValueChanged="VisualizerControlBeatZoneToSlider_ValueChanged"/>
+            <Label x:Name="VisualizerControlBeatZoneToValueLabel" Grid.Row="5" Grid.Column="3" Content="128" FontSize="7" Margin="0" Style="{StaticResource StandartLabelStyle}"/>
+
+            <Label x:Name="VisualizerControlBorderColorLabel" Grid.Row="6" Grid.Column="1" Content="Border Color" Style="{StaticResource StandartLabelStyle}" MouseDown="VisualizerControlDragButton_MouseDown" MouseMove="VisualizerControlDragButton_MouseMove" MouseUp="VisualizerControlDragButton_MouseUp" />
+            <Button x:Name="VisualizerControlBorderColorButton" Grid.Row="6" Click="VisualizerControlBorderColorButton_Click"/>
+
+            <Label x:Name="VisualizerControlFillColorLabel" Grid.Row="6" Grid.Column="2" Content="Fill Color" Style="{StaticResource StandartLabelStyle}" MouseDown="VisualizerControlDragButton_MouseDown" MouseMove="VisualizerControlDragButton_MouseMove" MouseUp="VisualizerControlDragButton_MouseUp" />
+            <Button x:Name="VisualizerControlFillColorButton" Grid.Row="6" Grid.Column="4" Click="VisualizerControlFillColorButton_Click"/>
+
+            <CheckBox x:Name="VisualizerControlTopMostCheckbox" Grid.Row="7" Grid.ColumnSpan="2" Content="Top most" Style="{StaticResource StandartCheckboxStyle}" Checked="VisualizerControlTopMostCheckbox_Checked" Unloaded="VisualizerControlTopMostCheckbox_Unloaded"/>
+        </Grid>
+    </Grid>
+</Window>

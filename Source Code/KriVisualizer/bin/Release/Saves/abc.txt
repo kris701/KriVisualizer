@@ -1,0 +1,36 @@
+( MainWindow Data : [0] ) { 
+     ( INT ) Location X : [0.0] = 427
+     ( INT ) Location Y : [0.1] = 571
+     ( INT ) Audio Source Index : [0.2] = 5
+     ( INT ) Refresh rate Index : [0.3] = 2
+}
+( Visualizer Window : [1] ) { 
+     ( INT ) Location X : [1.0] = 919
+     ( INT ) Location Y : [1.1] = 205
+     ( INT ) Width : [1.2] = 431
+     ( INT ) Height : [1.3] = 732
+     ( INT ) Visual Samples : [1.4] = 128
+     ( INT ) Smoothness : [1.5] = 2
+     ( INT ) Sensitivity : [1.6] = 5
+     ( INT ) BeatZone From : [1.7] = 0
+     ( INT ) BeatZone To : [1.8] = 46
+     ( INT ) Visualization type index : [1.9] = 3
+     ( BRS ) Forecolor : [1.10] = #FFEE82EE
+     ( BRS ) Backcolor : [1.11] = #FFDC143C
+     ( BOL ) TopMost : [1.12] = True
+}
+( Visualizer Window : [2] ) { 
+     ( INT ) Location X : [2.0] = 100
+     ( INT ) Location Y : [2.1] = 1014
+     ( INT ) Width : [2.2] = 1695
+     ( INT ) Height : [2.3] = 552
+     ( INT ) Visual Samples : [2.4] = 128
+     ( INT ) Smoothness : [2.5] = 1
+     ( INT ) Sensitivity : [2.6] = 6
+     ( INT ) BeatZone From : [2.7] = 0
+     ( INT ) BeatZone To : [2.8] = 128
+     ( INT ) Visualization type index : [2.9] = 4
+     ( BRS ) Forecolor : [2.10] = #FF6A5ACD
+     ( BRS ) Backcolor : [2.11] = #FF000000
+     ( BOL ) TopMost : [2.12] = False
+}
