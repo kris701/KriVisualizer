@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:KriVisualizer"
              mc:Ignorable="d" 
-             Width="300" Height="300" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="300" MinHeight="300" AllowsTransparency="True" Background="Transparent" WindowStyle="None" Loaded="Window_Loaded">
+             Width="300" Height="300" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="300" MinHeight="300" AllowsTransparency="True" Background="Transparent" WindowStyle="None" Loaded="Window_Loaded" Icon="logopng_RLR_icon.ico">
 
     <Grid x:Name="VisualizerControlGrid">
         <Grid.RowDefinitions>
